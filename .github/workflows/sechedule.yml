@@ -2,6 +2,7 @@ on:
     push:
     schedule:
       - cron: '* * * * *'
+    workflow_dispatch:  
 
 
     
