@@ -1,0 +1,34 @@
+on:
+ push:
+
+jobs:
+    DEV:
+      runs-on: ubuntu-latest
+      environment: DEV  
+
+      steps:
+        - uses: actions/checkout@v3
+          run: |
+             echo "Job runs For .DEV envirment"
+
+
+    QA:
+        runs-on: ubuntu-latest
+        environment: QA   
+        need: DEV 
+  
+        steps:
+          - uses: actions/checkout@v3
+            run: |
+               echo "Job runs For .QA envirment"  
+              
+               
+      PROD:
+        runs-on: ubuntu-latest
+        environment: PROD   
+        need: QA 
+  
+        steps:
+          - uses: actions/checkout@v3
+            run: |
+               echo "Job runs For .PROD envirment"           
